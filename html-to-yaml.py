@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
 """
-Transform a Confluence-like HTML page tree into YAML.
+Transform a Confluence HTML TOC file into a YAML file.
+
+To use the script to transform an HTML file into a YAML file, run the following at the command line:
+
+```
+python3 html-to-yaml.py <path/to/html-file>
+```
+
+The output is a YAML file with the same base name as the HTML input file, so `test.html` is converted to `test.yaml`, with the source file being preserved.
 
 Rules:
 - Each <li> with an <a href="...">Text</a> becomes a node.
 - Nodes preserve the order and nesting in the HTML <ul>/<li> structure.
-- Each node has: title, path, children. If no children, children: none.
+- Each node has: title, path, children. If a node has no children, for that node, `children: none`.
 - Strip query strings (?...) from links.
-- Output YAML is written next to the input with ".yaml" extension.
-- Top-level key is "toc:".
 """
 
 import sys
