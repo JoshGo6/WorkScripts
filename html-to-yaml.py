@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Transform a Confluence HTML TOC file into a YAML file.
+This script transform a Confluence HTML TOC file into a YAML file.
 
-To use the script to transform an HTML file into a YAML file, run the following at the command line:
+To use the script, run the following at the command line:
 
 ```
 python3 html-to-yaml.py <path/to/html-file>
