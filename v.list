@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vars SYSTEM "https://resources.jetbrains.com/writerside/1.0/vars.dtd">
+<vars>
+    <var name="product" value="Writerside"/>
+    <var name="General.Amelia.application" value="Amelia"/>
+    <var name="General.Amelia.company" value="Amelia"/>
+    <var name="General.Autonomics.application" value="Autonomics"/>
+    <var name="General.AIOps.application" value="AIOps"/>
+    <var name="General.Business.Process.Network.1" value="Business Process Network"/>
+    <var name="General.Business.Process.Network.1" value="Business Process Network"/>
+    <var name="B01-Admin.Administration.workspace" value="Administration"/>
+    <var name="B01-Admin.Domains.feature" value="Domains"/>
+    <var name="B01-Admin.UI.Bundles.feature" value="UI Bundles"/>
+    <var name="B01-Admin.Themes.feature" value="Themes"/>
+    <var name="B01-Admin.Content.Packs.feature" value="Content Packs"/>
+    <var name="B01-Admin.Security.module" value="Security"/>
+    <var name="B01-Admin.Audit.module" value="Audit"/>
+    <var name="B01-Admin.VirtualHosts.module" value="Virtual Hosts"/>
+    <var name="B01-Admin.Users.module" value="Users"/>
+    <var name="B01-Admin.Roles.module" value="Roles"/>
+    <var name="B01-Admin.User.Groups.module" value="User Groups"/>
+    <var name="B01-Admin.Global.User.Groups.module" value="Global User Groups"/>
+    <var name="B02-Amelia.Amelia.workspace" value="Amelia"/>
+    <var name="B03-Digital-Empl.Digital.Employees.builder" value="Digital Employees builder"/>
+    <var name="B03-Digital-Empl.Amelia.Builds.Amelia.feature" value="Amelia Builds Amelia"/>
+    <var name="B03-Digital-Empl.Conversation.Flows.feature" value="Conversation Flows"/>
+    <var name="B03-AgenticAI.AIAgent.feature" value="AI Agents"/>
+    <var name="B03-AgenticAI.feature" value="AI Agents"/>
+    <var name="B03-AgenticAI-Cognitive-Agents.feature" value="Cognitive Agents"/>
+    <var name="B03-AgenticAI-Cognitive-Functions.feature" value="Cognitive Functions"/>
+    <var name="B03-AgenticAI-Knowledge-Collections.feature" value="Knowledge Collections"/>
+    <var name="B03-AgenticAI-Privacy-Safety.feature" value="Privacy and Safety"/>
+    <var name="B03-AgenticAI-Settings.feature" value="Settings"/>
+    <var name="B03-AgenticAI.workspace" value="AI Agents"/>
+    <var name="B03-Digital-Empl.Web.Actions.feature" value="Web Actions"/>
+    <var name="B03-Digital-Empl.Integrations.feature" value="Integrations"/>
+    <var name="B03-Digital-Empl.NLU.Comprehension.feature" value="NLU Comprehension"/>
+    <var name="B03-Digital-Empl.NLU.Resources.feature" value="NLU Resources"/>
+    <var name="B03-Digital-Empl.Knowledge.Ingestor.feature" value="Knowledge Ingestor"/>
+    <var name="B03-Digital-Empl.Digital.Employees.workspace" value="Digital Employees"/>
+    <var name="B03-Digital-Empl.Amelia.Says.block" value="Amelia Says"/>
+    <var name="B03-Digital-Empl.Intent.block" value="Intent"/>
+    <var name="B03-Digital-Empl.Amelia.Asks.block" value="Amelia Asks"/>
+    <var name="B03-Digital-Empl.Present.block" value="Present"/>
+    <var name="B03-Digital-Empl.Request.block" value="Request"/>
+    <var name="B03-Digital-Empl.User.Utterance.block" value="User Utterance"/>
+    <var name="B03-Digital-Empl.Backend.block" value="Backend"/>
+    <var name="B03-Digital-Empl.Subflow.block" value="Subflow"/>
+    <var name="B03-Digital-Empl.Script.block" value="Script"/>
+    <var name="B03-Digital-Empl.Call.Intent.block" value="Call Intent"/>
+    <var name="B03-Digital-Empl.Push.Conversation.block" value="Push Conversation"/>
+    <var name="B03-Digital-Empl.Card.block" value="Card"/>
+    <var name="B03-Digital-Empl.Gateway.block" value="Gateway"/>
+    <var name="B03-Digital-Empl.Wait.block" value="Wait"/>
+    <var name="B03-Digital-Empl.Split.block" value="Split"/>
+    <var name="B03-Digital-Empl.Exit.block" value="Exit"/>
+    <var name="B03-Digital-Empl.Escalation.block" value="Escalation"/>
+    <var name="B03-Digital-Empl.Custom.Cards.feature" value="Custom Cards"/>
+    <var name="B03-Digital-Empl.Intents.feature" value="Intents"/>
+    <var name="B03-Digital-Empl.Scripts.workspace" value="Scripts"/>
+    <var name="B03-Digital-Empl.Script.Library" value="Script library"/>
+    <var name="B03-Digital-Empl.Scripts" value="UNDEFINED VARIABLE IN THE ORIGINAL DOCUMENTATION"/>
+    <var name="B03-Digital-Empl.Script.task" value="Script"/>
+    <var name="B03-Digital-Empl.Custom.Metric.service" value="Custom Metric"/>
+    <var name="B03-Digital-Empl.FAQ.service" value="FAQ"/>
+    <var name="B03-Digital-Empl.Integration.service" value="Integration"/>
+    <var name="B03-Digital-Empl.Logging.service" value="Logging"/>
+    <var name="B03-Digital-Empl.Message.service" value="Message"/>
+    <var name="B03-Digital-Empl.Quantity.service" value="Quantity"/>
+    <var name="B03-Digital-Empl.Context.service" value="Context"/>
+    <var name="B03-Digital-Empl.Segmentation.Service" value="Segmentation"/>
+    <var name="B03-Digital-Empl.segmentationService" value="segmentationService"/>
+    <var name="B03-Digital-Empl.Translation.service" value="Translation"/>
+    <var name="B03-Digital-Empl.Voice.service" value="Voice"/>
+    <var name="B03-Digital-Empl.Channel.connection.service" value="Channel"/>
+    <var name="B03-Digital-Empl.Entity.connection.service" value="Entity"/>
+    <var name="B03-Digital-Empl.Quantity.connection.service" value="Quantity"/>
+    <var name="B03-Digital-Empl.Response.Pool.connection.service" value="Response Pool"/>
+    <var name="B03-Digital-Empl.Response.connection.service" value="Response Connection"/>
+    <var name="B03-Digital-Empl.Service.Operations.connection.service" value="Service Operations"/>
+    <var name="B03-Digital-Empl.Upload.connection.service" value="Upload"/>
+    <var name="B03-Digital-Empl.Utility.connection.service" value="Utility"/>
+    <var name="B03-Digital-Empl.Voice.Operations.connection.service" value="Voice Operations"/>
+    <var name="B03-Digital-Empl.Working.Memory.connection.service" value="Working Memory"/>
+    <var name="B03-Digital-Empl.Math.connection.service" value="Math"/>
+    <var name="B03-Digital-Empl.Request.task" value="Request"/>
+    <var name="B03-Digital-Empl.Content.Management.feature" value="Content Management"/>
+    <var name="B03-Digital-Empl.Tabular.Data.feature" value="Tabular Data"/>
+    <var name="B03-Digital-Empl.UiPath.feature" value="UiPath Configuration"/>
+    <var name="B03-Digital-Empl.Authorizations.feature" value="Authorizations"/>
+    <var name="B03-Digital-Empl.Consume.Web.Service.task" value="Consume Web Service"/>
+    <var name="B03-Digital-Empl.Certificates.feature" value="Certificates"/>
+    <var name="B03-Digital-Empl.Proxies.feature" value="Proxies"/>
+    <var name="B03-Digital-Empl.Web.Service.task" value="Web Service"/>
+    <var name="B03-Digital-Empl.Present.task" value="Present"/>
+    <var name="B03-Digital-Empl.Amelia.Voice.gateway" value="Voice"/>
+    <var name="B03-Digital-Empl.Enterprise.Voice.gateway" value="Enterprise Voice Gateway"/>
+    <var name="B03-Digital-Empl.Webex.Teams.Chat.gateway" value="Webex Teams Chat"/>
+    <var name="B03-Digital-Empl.Integration.Logs.feature" value="Integration Logs"/>
+    <var name="B03-Digital-Empl.Assets.feature" value="Assets"/>
+    <var name="B03-Digital-Empl.Property.Sets.feature" value="Property Sets"/>
+    <var name="B03-Digital-Empl.Templates.feature" value="Templates"/>
+    <var name="B03-Digital-Empl.Cognitive.Providers.feature" value="Cognitive Providers"/>
+    <var name="B03-Digital-Empl.Cognitive.Tasks.feature" value="Cognitive Tasks"/>
+    <var name="B03-Digital-Empl.Entities.feature" value="Entities"/>
+    <var name="B03-Digital-Empl.Models.feature" value="Models"/>
+    <var name="B03-Digital-Empl.Datasets.feature" value="Datasets"/>
+    <var name="B03-Digital-Empl.Response.Pools.feature" value="Response Pools"/>
+    <var name="B04-Amelia-Answers.Queries.dashboard" value="Queries"/>
+    <var name="B03-Digital-Empl.Translations.feature" value="Translations"/>
+    <var name="B03-Digital-Empl.AIML.feature" value="AIML"/>
+    <var name="B03-Digital-Empl.Aspects.feature" value="Aspects"/>
+    <var name="B03-Digital-Empl.Grammars.feature" value="Grammars"/>
+    <var name="B03-Digital-Empl.Intent.Tester.feature" value="Intent Tester"/>
+    <var name="B03-Digital-Empl.Vocabularies.feature" value="Vocabularies"/>
+    <var name="B03-Digital-Empl.Cognitive.Tasks.featur" value="Cognitive Tasks"/>
+    <var name="B03-Digital-Empl.Web.URLs.BPN.feature" value="Web URLs (BPN)"/>
+    <var name="B03-Digital-Empl.Settings.NLU.Settings.feature" value="Settings"/>
+    <var name="B03-Digital-Empl.Bulk.Import.Export.feature" value="Bulk Import/Export"/>
+    <var name="B03-Digital-Empl.Digital.Employees.Builder.Heading" value="Digital Employees Builder"/>
+    <var name="B03-Digital-Empl.Gateway.Integrations.feature" value="Gateway Integrations"/>
+    <var name="B03-Digital-Empl.BPNs.feature" value="BPNs"/>
+    <var name="B04-Export.Recordings.Analytics.feature" value="Export Recordings"/>
+    <var name="B04-Amelia-Answers.Sources.feature" value="Sources"/>
+    <var name="B04-Amelia-Answers.Predict.feature" value="Predict"/>
+    <var name="B04-Amelia-Answers.Responses.feature" value="Responses"/>
+    <var name="B04-Amelia-Answers.Tests.feature" value="Tests"/>
+    <var name="B04-Amelia-Answers.Settings.feature" value="Settings"/>
+    <var name="B04-Amelia-Answers.Analytics.workspace" value="Amelia Answers Analytics"/>
+    <var name="B04-Amelia-Answers.Amelia.Answers.workspace" value="Amelia Answers"/>
+    <var name="B04-Amelia-Answers.Analytics.feature" value="Analytics"/>
+    <var name="B10-Export.Recordings.Analytics.feature" value="Export Recordings"/>
+    <var name="B10-Answer.Agents.Sources.feature" value="Sources"/>
+    <var name="B10-Answer.Agents.Sources.Collections.feature" value="Knowledge Collections"/>
+    <var name="B10-Answer.Agents.Predict.feature" value="Predict"/>
+    <var name="B10-Answer.Agents.Responses.feature" value="Responses"/>
+    <var name="B10-Answer.Agents.Tests.feature" value="Tests"/>
+    <var name="B10-Answer.Agents.Settings.feature" value="Settings"/>
+    <var name="B10-Answer.Agents.Analytics.workspace" value="Answer Agents Analytics"/>
+    <var name="B10-Answer.Agents.workspace" value="Answer Agents"/>
+    <var name="B10-Answer.Agents.Analytics.feature" value="Analytics"/>
+    <var name="B05-Contact-Center.Contact.Center.workspace" value="Contact Center"/>
+    <var name="B05-Contact-Center.Supervisor.dashboard" value="Supervisor Dashboard"/>
+    <var name="B05-Contact-Center.Response.Templates.feature" value="Response Templates"/>
+    <var name="B05-Contact-Center.Settings.feature" value="Settings"/>
+    <var name="B06-Agent.Agent.workspace" value="Agent"/>
+    <var name="B07-Learning.Learning.workspace" value="Learning"/>
+    <var name="B07-Learning.Intent.Learning.feature" value="Intent Learning"/>
+    <var name="B07-Learning.Abandoned.Remediations.feature" value="Abandoned Remediations"/>
+    <var name="B07-Learning.Escalation.Learning.feature" value="Escalation Learning"/>
+    <var name="B08-Analytics.Analytics.workspace" value="Analytics"/>
+    <var name="B08-Analytics.Conversations.workspace" value="Conversations"/>
+    <var name="B08-Analytics.Conv.Dashboard.workspace" value="Dashboard"/>
+    <var name="B08-Analytics.Conv.Reports.workspace" value="Reports"/>
+    <var name="B08-Analytics.Conv.User.Feedback.workspace" value="User Feedback"/>
+    <var name="B08-Analytics.Journey.workspace" value="Journey Analytics"/>
+    <var name="B08-Analytics.NPS.workspace" value="NPS Analytics"/>
+    <var name="B09-Orchestrator.Orchestrator.workspace" value="Orchestrator"/>
+    <var name="C01-Operations.Conductor.module" value="Conductor Command Line Interface (CLI)"/>
+    <var name="C03-Operations.Voice.module" value="Voice"/>
+    <var name="E01-Operation.Contacts.module" value="Contacts"/>
+    <var name="E01-Operation.Operation.group" value="Operation"/>
+    <var name="E01-Operation.Problems.module" value="Problems"/>
+    <var name="E01-Operation.Tasks.module" value="Tasks"/>
+    <var name="E01-Operation.Settings.module" value="Settings"/>
+    <var name="E01-Operation.Workflows.module" value="Workflows"/>
+    <var name="E01-Operation.Tasks.Inbox.workspace" value="Tasks Inbox"/>
+    <var name="E02-Autonomics.workspace" value="Autonomics"/>
+    <var name="E02-Autonomics.Automations.Lite.workspace" value="Automations Lite"/>
+    <var name="E02-Autonomics.Automations.module" value="Automations"/>
+    <var name="E02-Autonomics.Autonomics.group" value="Autonomics"/>
+    <var name="E02-Autonomics.Connections.module" value="Connections"/>
+    <var name="E02-Autonomics.Scheduling.module" value="Scheduling"/>
+    <var name="E02-Autonomics.Automation.Studio.workspace" value="Automation Studio"/>
+    <var name="E02-Autonomics.Fork.action" value="Fork"/>
+    <var name="E02-Autonomics.Join.action" value="Join"/>
+    <var name="E02-Autonomics.Start.action" value="Start"/>
+    <var name="E02-Autonomics.Success.action" value="Success"/>
+    <var name="E02-Autonomics.AIF.API.action" value="AIF API"/>
+    <var name="E02-Autonomics.AIOps.API.action" value="AIOps API"/>
+    <var name="E02-Autonomics.Edit.Variable.action" value="Edit Variable"/>
+    <var name="E02-Autonomics.Email.action" value="Email"/>
+    <var name="E02-Autonomics.Credentials.feature" value="Credentials"/>
+    <var name="E02-Autonomics.Credentials.Passwords.feature" value="Passwords"/>
+    <var name="E02-Autonomics.Credentials.Groups.feature" value="User Groups"/>
+    <var name="E02-Autonomics.Credentials.Users.feature" value="Users"/>
+    <var name="E02-Autonomics.Get.Creds.action" value="Get Credentials"/>
+    <var name="E02-Autonomics.Host.Command.action" value="Host Command"/>
+    <var name="E02-Autonomics.HTTP.Request.action" value="HTTP Request"/>
+    <var name="E02-Autonomics.Link.action" value="Link"/>
+    <var name="E02-Autonomics.Noop.action" value="Noop"/>
+    <var name="E02-Autonomics.Phone.Call.action" value="Phone Call"/>
+    <var name="E02-Autonomics.Send.Hypera.action" value="Send HyperA"/>
+    <var name="E02-Autonomics.Script.action" value="Script"/>
+    <var name="E02-Autonomics.Task.Lifecycle.action" value="Task Lifecycle"/>
+    <var name="E02-Autonomics.TimedWait.action" value="TimedWait"/>
+    <var name="E02-Autonomics.Update.Tasks.action" value="Update Tasks"/>
+    <var name="E02-Autonomics.Browser.workspace" value="Browser"/>
+    <var name="E02-Autonomics.Executions.workspace" value="Executions"/>
+    <var name="E02-Autonomics.Knowledge.article" value="Knowledge"/>
+    <var name="E02-Autonomics.Knowledge.workspace" value="Knowledge"/>
+    <var name="E02-Autonomics.Matchers.workspace" value="Matchers"/>
+    <var name="E02-Autonomics.Match.Merge.workspace" value="Match and Merge"/>
+    <var name="E02-Autonomics.Script.Library.workspace" value="Script Library"/>
+    <var name="E02-Autonomics.Settings.workspace" value="Settings"/>
+    <var name="E02-Autonomics.Allowed.Commands.workspace" value="Allowed Commands"/>
+    <var name="E02-Autonomics.Denied.Commands.workspace" value="Denied Commands"/>
+    <var name="E02-Autonomics.Whitelisted.Commands.workspace" value="Whitelisted Commands"/>
+    <var name="E02-Autonomics.knowledge.article" value="Knowledge"/>
+    <var name="E02-Autonomics.Knowledge.module" value="Knowledge"/>
+    <var name="E02-Autonomics.Automations.Lite.module" value="Automations Lite"/>
+    <var name="E02-Autonomics.Match.Merge.module" value="Match and Merge"/>
+    <var name="E02-Autonomics.Matchers.module" value="Matchers"/>
+    <var name="E02-Autonomics.Script.Library.module" value="Script Library"/>
+    <var name="E02-Autonomics.Settings.module" value="Settings"/>
+    <var name="E02-Autonomics.Update.Task.action" value="Update Task"/>
+    <var name="E03-Reporting.Dashboards.module" value="Dashboards"/>
+    <var name="E03-Reporting.Reporting.group" value="Reporting"/>
+    <var name="E03-Reporting.Reports.module" value="Reports"/>
+    <var name="E04-Config.CMDB.module" value="CMDB"/>
+    <var name="E04-Config.CMDB.Scopes.module" value="Scopes"/>
+    <var name="E04-Config.CMDB.CIs.module" value="CIs"/>
+    <var name="E04-Config.CMDB.Discoveries.module" value="Discoveries"/>
+    <var name="E04-Config.CMDB.History.module" value="History"/>
+    <var name="E04-Config.CMDB.Exports.module" value="Exports"/>
+    <var name="E04-Config.CMDB.Imports.module" value="Imports"/>
+    <var name="E04-Config.CMDB.Batch.Updates.module" value="Batch Updates"/>
+    <var name="E04-Config.Configuration.group" value="Configuration"/>
+    <var name="E04-Config.Downtime.module" value="Downtime"/>
+    <var name="E04-Config.Event.Management.module" value="Event Management"/>
+    <var name="E04-Config.Event.Correlation.module" value="Correlation Rules"/>
+    <var name="E04-Config.Event.Attributes.module" value="Attributes"/>
+    <var name="E04-Config.Event.Rules.module" value="Event Rules"/>
+    <var name="E04-Config.Event.DowntimeRules.module" value="Event Downtime Rules"/>
+    <var name="E04-Config.Settings.module" value="Workflow Settings"/>
+    <var name="E05-Autonomics-Admin.Administration.group" value="Administration"/>
+    <var name="E05-Autonomics-Admin.Audit.module" value="Audit"/>
+    <var name="E05-Autonomics-Admin.Passwords.module" value="Passwords"/>
+    <var name="E05-Autonomics-Admin.Settings.module" value="Settings"/>
+    <var name="E05-Autonomics-Admin.Settings.workspace" value="Admin Settings"/>
+    <var name="E05-Autonomics-Admin.Content.Packs.module" value="Content Packs"/>
+    <var name="E05-Autonomics-Admin.Content.Packs.Upload.module" value="Upload"/>
+    <var name="E05-Autonomics-Admin.Content.Packs.Configurations.module" value="Configurations"/>
+    <var name="E05-Autonomics-Admin.Content.Packs.Exports.module" value="Exports"/>
+    <var name="E05-Autonomics-Admin.Clients.module" value="Clients"/>
+    <var name="E05-Autonomics-Admin.Users.module" value="Users"/>
+    <var name="E05-Autonomics-Admin.Roles.module" value="Roles"/>
+    <var name="E05-Autonomics-Admin.LoginGroups.module" value="Login Groups"/>
+    <var name="E05-Autonomics-Admin.Roles.module" value="Roles"/>
+    <var name="E05-Autonomics-Admin.Tags.module" value="Tags"/>
+    <var name="E05-Autonomics-Admin.Themes.module" value="Themes"/>
+    <var name="E05-Autonomics-Admin.VirtualHosts.module" value="Virtual Hosts"/>
+    <var name="E05-Autonomics-Admin.Integrations.module" value="Integrations"/>
+    <var name="E05-Autonomics-Admin.AuthSystems.module" value="Authentication Systems"/>
+    <var name="E05-Autonomics-Admin.PassPolicies.module" value="Password Policies"/>
+    <var name="E05-Autonomics-Ops.ALite.module" value="Automata Lite (ALite)"/>
+</vars>
