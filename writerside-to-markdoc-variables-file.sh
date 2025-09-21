@@ -46,3 +46,4 @@ done
 # Write the static closing text to the file.
 echo -e "\t}" >> markdoc_variables.json
 echo } >> markdoc_variables.json
+rm tmp.txt
