@@ -21,14 +21,15 @@ for file in "${FILES_WITH_IMAGES[@]}"; do
     ')
 
     # Find all of the image references in the currently processed file, and assign them to ORIGINAL_IMG__REFS.
-    echo -e "\nProcessing file ${file}."
     mapfile -t ORIGINAL_IMG__REFS < <(grep -oP "!\[(\w|-)+\]\((\w|-)+\.\w{3}\)(\{.*?\})?" "$file")
-        for ref in "${ORIGINAL_IMG__REFS[@]}"; do
-            echo "$ref"
+        # Extract the file name from each image reference and assign it to `file_name`
+        for original_text in "${ORIGINAL_IMG__REFS[@]}"; do
+            file_name=$(echo "$original_text" | awk '
+                BEGIN { FS="(" }
+                {last_pos=match($2, ")")}
+                {print substr($2, 1, last_pos - 1) }
+            ')
         done
-
-
-
 done
 
 
