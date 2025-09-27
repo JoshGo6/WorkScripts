@@ -34,8 +34,13 @@ for file in "${FILES_WITH_IMAGES[@]}"; do
                 {print substr($2, 1, last_pos - 1) }
             ')
 
-            # Use awk to find the alt. text for `file_name` and assign that information to `alt_text.`
-
+            # Use awk to find the alt. text for `file_name` and assign that information to `alt_text`
+            alt_text=$(awk -v file_match="$file_name" ' 
+                BEGIN {FS="\""}
+                $0 ~ file_match {print $4}
+            ' ./img-alt-text.yaml)
+            echo "$alt_text"
+            
             # Use sed on `file` to replace `original_text` with a new string built from the following:
             # 
             # -'depth'
