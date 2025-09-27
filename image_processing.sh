@@ -5,7 +5,10 @@ declare -a ORIGINAL_IMG__REFS
 # Find all Markdown files recursively, and write them to the array ALL_MARKDOWN_FILES
 mapfile -t ALL_MARKDOWN_FILES < <(find . -type f -name "*.md" -exec ls {} +)
 
-# Search through all the Markdown files and every time find a file that contains an image reference, write to the array FILES_WITH_IMAGES
+# Search through all the Markdown files and every time find a file that contains an image reference, write to the array FILES_WITH_IMAGES. The regex is based on the following typical image reference:
+#
+# ![A02-00_0001-Amelia-Capabilities](A02-00_0001-Amelia-Capabilities.png){width="900" style="block"}
+
 for file in "${ALL_MARKDOWN_FILES[@]}"; do
     grep -lPq "!\[(\w|-)+\]\((\w|-)+\.\w{3}\)" "$file" && FILES_WITH_IMAGES+=("$file")
 done
@@ -20,7 +23,8 @@ for file in "${FILES_WITH_IMAGES[@]}"; do
         {print gsub(/\//, "", temp)}
     ')
 
-    # Find all of the image references in the currently processed file, and assign them to ORIGINAL_IMG__REFS.
+    # Find all of the image references in the currently processed file, and assign them to ORIGINAL_IMG__REFS. The image references are the strings of the following form:
+    # ![...](...png){width=...style=...}
     mapfile -t ORIGINAL_IMG__REFS < <(grep -oP "!\[(\w|-)+\]\((\w|-)+\.\w{3}\)(\{.*?\})?" "$file")
         # Extract the file name from each image reference and assign it to `file_name`
         for original_text in "${ORIGINAL_IMG__REFS[@]}"; do
@@ -29,6 +33,18 @@ for file in "${FILES_WITH_IMAGES[@]}"; do
                 {last_pos=match($2, ")")}
                 {print substr($2, 1, last_pos - 1) }
             ')
+
+            # Use awk to find the alt. text for `file_name` and assign that information to `alt_text.`
+
+            # Use sed on `file` to replace `original_text` with a new string built from the following:
+            # 
+            # -'depth'
+            # - `file_name`
+            # - `alt_text`
+            #
+            # The new string will be of thef following form:
+            # {% Image src="[https://upload.wikimedia.org/wikipedia/commons/8/8c/SoundHound_AI_logo_black.jpg](https://upload.wikimedia.org/wikipedia/commons/8/8c/SoundHound_AI_logo_black.jpg)" alt="SoundHound AI logo" size="natural" /%}
+
         done
 done
 
