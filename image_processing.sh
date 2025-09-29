@@ -2,6 +2,16 @@ declare -a ALL_MARKDOWN_FILES
 declare -a FILES_WITH_IMAGES
 declare -a ORIGINAL_IMG__REFS
 
+# This function escapes regex characters in the sed input so they're treated literally.
+escaped_sed_input() {
+    printf '%s\n' "$1" | sed 's:[][\\/.^$*]:\\&:g'
+}
+
+# This function escapes the sed reserved characters in the sed substitution so they're treated literally.
+escaped_sed_output() {
+    printf '%s\n' "$1" | sed 's:[\\/&]:\\&:g; $!s/$/\\/'
+}
+
 # Find all Markdown files recursively, and write them to the array ALL_MARKDOWN_FILES
 mapfile -t ALL_MARKDOWN_FILES < <(find . -type f -name "*.md" -exec ls {} +)
 
@@ -26,8 +36,19 @@ for file in "${FILES_WITH_IMAGES[@]}"; do
     # Find all of the image references in the currently processed file, and assign them to the array ORIGINAL_IMG__REFS. The image references are strings of the following form:
     # ![...](...png){width=...style=...}
     mapfile -t ORIGINAL_IMG__REFS < <(grep -oP "!\[(\w|-)+\]\((\w|-)+\.\w{3}\)(\{.*?\})?" "$file")
-        # Extract the file name from each image reference and assign it to the `file_name` variable
+   
         for original_text in "${ORIGINAL_IMG__REFS[@]}"; do
+
+            # Store an escaped version of the original text that we'll use in sed. The escaped version treats all regex metachars as literals.
+            escaped_original_text=$(escaped_sed_input "$original_text" )
+        
+            # Now we'll start to construct the replacement text to use in sed. The replacement string in sed will use a new string built from the following:
+            # 
+            # - 'depth'
+            # - `file_name`
+            # - `alt_text`
+        
+            # Extract the file name from each image reference and assign it to the `file_name` variable
             file_name=$(echo "$original_text" | awk '
                 BEGIN { FS="(" }
                 {last_pos=match($2, ")")}
@@ -40,19 +61,25 @@ for file in "${FILES_WITH_IMAGES[@]}"; do
                 $0 ~ file_match {print $4}
             ' ./img-alt-text.yaml)
             
-            # Construct new text to replace the original text. Since we'll use sed to make the replacements, we need to escape the following character class: [&\""]
+            # Construct path to the image file based on `depth` and `file_name`:
+            prefix=""
+            for (( COUNTER=1; COUNTER<=${depth}; COUNTER++ )); do
+                prefix+="../"
+            done
+            path_to_image="${prefix}img/${file_name}"
+
+            # We need to escape the following character class: [&\""]
             # This is the form of the text replacement:
-            # {% Image src="[https://upload.wikimedia.org/wikipedia/commons/8/8c/SoundHound_AI_logo_black.jpg](https://upload.wikimedia.org/wikipedia/commons/8/8c/SoundHound_AI_logo_black.jpg)" alt="SoundHound AI logo" size="natural" /%} 
+            # {% Image src="/docs-assets/sample-hero.svg" alt="Sample Hero Image" size="hero" /%}
+            new_text_before_escapes="{% Image src=\"${path_to_image}\" alt=\"${alt_text}\" size=\"natural\" /%}"
+            escaped_new_text="$(escaped_sed_output "$new_text_before_escapes")"
 
-            # Use sed on `file` to replace `original_text` with a new string built from the following:
-            # 
-            # -'depth'
-            # - `file_name`
-            # - `alt_text`
-            #
-            # The new string will be of thef following form:
-            # {% Image src="[https://upload.wikimedia.org/wikipedia/commons/8/8c/SoundHound_AI_logo_black.jpg](https://upload.wikimedia.org/wikipedia/commons/8/8c/SoundHound_AI_logo_black.jpg)" alt="SoundHound AI logo" size="natural" /%}
-
+#            echo "Original text with escapes:"
+#            echo "$escaped_original_text"
+#            echo
+#            echo "New text with escapes:"
+#            echo "$escaped_new_text"
+#            echo
         done
 done
 
