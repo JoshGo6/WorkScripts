@@ -1,6 +1,6 @@
-declare -a ALL_MARKDOWN_FILES
-declare -a FILES_WITH_IMAGES
-declare -a ORIGINAL_IMG__REFS
+declare -a ALL_MARKDOWN_FILES # Stores the names of all .md files
+declare -a FILES_WITH_IMAGES # Stores only names of files that contain images.
+declare -a ORIGINAL_IMG__REFS #Stores all of the original Markdown image references.
 
 # This function escapes regex characters in the sed input so they're treated literally.
 escaped_sed_input() {
@@ -13,7 +13,7 @@ escaped_sed_output() {
 }
 
 # Find all Markdown files recursively, and write them to the array ALL_MARKDOWN_FILES
-mapfile -t ALL_MARKDOWN_FILES < <(find . -type f -name "*.md" -exec ls {} +)
+mapfile -d '' ALL_MARKDOWN_FILES < <( find . -type f -name "*.md" -print0 )
 
 # Search through all the Markdown files in ALL_MARKDOWN_FILES and every time we find a file that contains an image reference, add that file name to FILES_WITH_IMAGES. We search for image references using regex. The regex is based on the following typical image reference:
 #
@@ -27,11 +27,7 @@ done
 for file in "${FILES_WITH_IMAGES[@]}"; do
 
     # Find out how many folders deep the current file is in the hierarchy, and assign that integer to the `depth` variable
-    depth=$(echo "$file" | \
-    awk '
-        {temp = $0}
-        {print gsub(/\//, "", temp)}
-    ')
+    depth=$(echo "$file" | awk ' {print (gsub(/\//, "", $0) - 1)}')
 
     # Find all of the image references in the currently processed file, and assign them to the array ORIGINAL_IMG__REFS. The image references are strings of the following form:
     # ![...](...png){width=...style=...}
@@ -40,7 +36,7 @@ for file in "${FILES_WITH_IMAGES[@]}"; do
         for original_text in "${ORIGINAL_IMG__REFS[@]}"; do
 
             # Store an escaped version of the original text that we'll use in sed. The escaped version treats all regex metachars as literals.
-            escaped_original_text=$(escaped_sed_input "$original_text" )
+            escaped_original_text="$(escaped_sed_input "$original_text" )"
         
             # Now we'll start to construct the replacement text to use in sed. The replacement string in sed will use a new string built from the following:
             # 
@@ -49,17 +45,17 @@ for file in "${FILES_WITH_IMAGES[@]}"; do
             # - `alt_text`
         
             # Extract the file name from each image reference and assign it to the `file_name` variable
-            file_name=$(echo "$original_text" | awk '
+            file_name="$(echo "$original_text" | awk '
                 BEGIN { FS="(" }
                 {last_pos=match($2, ")")}
                 {print substr($2, 1, last_pos - 1) }
-            ')
+            ')"
 
             # Use awk to find the alt. text for `file_name` and assign that information to `alt_text`
-            alt_text=$(awk -v file_match="$file_name" ' 
+            alt_text="$(awk -v file_match="$file_name" ' 
                 BEGIN {FS="\""}
                 $0 ~ file_match {print $4}
-            ' ./img-alt-text.yaml)
+            ' ./img-alt-text.yaml)"
             
             # Construct path to the image file based on `depth` and `file_name`:
             prefix=""
@@ -68,18 +64,14 @@ for file in "${FILES_WITH_IMAGES[@]}"; do
             done
             path_to_image="${prefix}img/${file_name}"
 
-            # We need to escape the following character class: [&\""]
             # This is the form of the text replacement:
             # {% Image src="/docs-assets/sample-hero.svg" alt="Sample Hero Image" size="hero" /%}
+            # We need to escape the following character class, because these are reserved characters in sed: [&\""]
             new_text_before_escapes="{% Image src=\"${path_to_image}\" alt=\"${alt_text}\" size=\"natural\" /%}"
             escaped_new_text="$(escaped_sed_output "$new_text_before_escapes")"
 
-#            echo "Original text with escapes:"
-#            echo "$escaped_original_text"
-#            echo
-#            echo "New text with escapes:"
-#            echo "$escaped_new_text"
-#            echo
+            # We're finally ready to perform the substitutions
+            sed -i "s/${escaped_original_text}/${escaped_new_text}/g" "$file"
         done
 done
 
