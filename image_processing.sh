@@ -19,19 +19,17 @@ mapfile -d '' ALL_MARKDOWN_FILES < <( find . -type f -name "*.md" -print0 )
 #
 # ![A02-00_0001-Amelia-Capabilities](A02-00_0001-Amelia-Capabilities.png){width="900" style="block"}
 
+
 for file in "${ALL_MARKDOWN_FILES[@]}"; do
-    grep -lPq "!\[(\w|-)+\]\((\w|-)+\.\w{3}\)" "$file" && FILES_WITH_IMAGES+=("$file")
+    grep -lPq "!\[.*?\]\(.*?\.\w{3}\)(\{.*?\})?" "$file" && FILES_WITH_IMAGES+=("$file")  
 done
 
 # Process the FILES_WITH_IMAGES array
 for file in "${FILES_WITH_IMAGES[@]}"; do
 
-    # Find out how many folders deep the current file is in the hierarchy, and assign that integer to the `depth` variable
-    depth=$(echo "$file" | awk ' {print (gsub(/\//, "", $0) - 1)}')
-
     # Find all of the image references in the currently processed file, and assign them to the array ORIGINAL_IMG__REFS. The image references are strings of the following form:
     # ![...](...png){width=...style=...}
-    mapfile -t ORIGINAL_IMG__REFS < <(grep -oP "!\[(\w|-)+\]\((\w|-)+\.\w{3}\)(\{.*?\})?" "$file")
+    mapfile -t ORIGINAL_IMG__REFS < <(grep -oP "!\[.*?\]\(.*?\.\w{3}\)(\{.*?\})?" "$file")
    
         for original_text in "${ORIGINAL_IMG__REFS[@]}"; do
 
@@ -40,7 +38,6 @@ for file in "${FILES_WITH_IMAGES[@]}"; do
         
             # Now we'll start to construct the replacement text to use in sed. The replacement string in sed will use a new string built from the following:
             # 
-            # - 'depth'
             # - `file_name`
             # - `alt_text`
         
@@ -57,12 +54,7 @@ for file in "${FILES_WITH_IMAGES[@]}"; do
                 $0 ~ file_match {print $4}
             ' ./img-alt-text.yaml)"
             
-            # Construct path to the image file based on `depth` and `file_name`:
-            prefix=""
-            for (( COUNTER=1; COUNTER<=${depth}; COUNTER++ )); do
-                prefix+="../"
-            done
-            path_to_image="${prefix}img/${file_name}"
+            path_to_image="/docs-assets/${file_name}"
 
             # This is the form of the text replacement:
             # {% Image src="/docs-assets/sample-hero.svg" alt="Sample Hero Image" size="hero" /%}
